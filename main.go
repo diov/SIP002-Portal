@@ -14,7 +14,7 @@ import (
 func main() {
 	http.HandleFunc("/", parse)
 
-	log.Fatal(http.ListenAndServe(":8090", nil))
+	log.Fatal(http.ListenAndServe(":443", nil))
 }
 
 func parse(w http.ResponseWriter, req *http.Request) {

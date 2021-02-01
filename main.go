@@ -7,14 +7,20 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"os"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	http.HandleFunc("/", parse)
+	port := os.Getenv("PORT")
 
-	log.Fatal(http.ListenAndServe(":443", nil))
+	if port == "" {
+		log.Fatal("$PORT must be set")
+	}
+
+	http.HandleFunc("/", parse)
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
 
 func parse(w http.ResponseWriter, req *http.Request) {

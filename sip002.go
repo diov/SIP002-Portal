@@ -74,5 +74,6 @@ func parseSipConfig(sip string) (config, error) {
 		c.Plugin = pluginConfig[:index]
 		c.PluginOpts = pluginConfig[index+1:]
 	}
+	c.UdpFallback = c.profile
 	return c, nil
 }

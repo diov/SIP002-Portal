@@ -43,12 +43,20 @@ func parse(w http.ResponseWriter, req *http.Request) {
 			return
 		}
 		configs := convertClashConfig(clashConfig.Proxies)
-		data, _ := json.Marshal(configs)
+		data, err := json.Marshal(configs)
+		if nil != err {
+			http.Error(w, err.Error(), http.StatusExpectationFailed)
+		}
 		_, _ = w.Write(data)
 	}
 }
 
 type config struct {
+	profile
+	UdpFallback profile `json:"udp_fallback"`
+}
+
+type profile struct {
 	Server     string `json:"server"`
 	ServerPort int    `json:"server_port"`
 	Method     string `json:"method"`

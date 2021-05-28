@@ -77,7 +77,7 @@ func parseClashConfig(proxy clashProxy) config {
 	if strings.Contains(proxy.Plugin, "obfs") {
 		c.Plugin = "obfs-local"
 
-		c.PluginOpts = fmt.Sprintf("obfs=%s:obfs-host=%s", proxy.PluginOpts.Mode, proxy.PluginOpts.Host)
+		c.PluginOpts = fmt.Sprintf("obfs=%s;obfs-host=%s", proxy.PluginOpts.Mode, proxy.PluginOpts.Host)
 	}
 	return c
 }

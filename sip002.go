@@ -74,6 +74,7 @@ func parseSipConfig(sip string) (config, error) {
 		c.Plugin = pluginConfig[:index]
 		c.PluginOpts = pluginConfig[index+1:]
 	}
+	c.Route = "bypass-china"
 	c.UdpFallback = c.profile
 	return c, nil
 }

@@ -53,6 +53,7 @@ func parse(w http.ResponseWriter, req *http.Request) {
 
 type config struct {
 	profile
+	Route       string  `json:"route"`
 	UdpFallback profile `json:"udp_fallback"`
 }
 

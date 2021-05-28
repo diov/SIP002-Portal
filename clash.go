@@ -79,6 +79,7 @@ func parseClashConfig(proxy clashProxy) config {
 
 		c.PluginOpts = fmt.Sprintf("obfs=%s;obfs-host=%s", proxy.PluginOpts.Mode, proxy.PluginOpts.Host)
 	}
+	c.Route = "bypass-china"
 	c.UdpFallback = c.profile
 	return c
 }
